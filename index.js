@@ -92,16 +92,60 @@ console.log(finances);
 //initiaisation of code
 
 let TotalMonth = finances.length;
- let Total = 0;
+ let accummulation= 0;
  let increment = 0;
+ let netIncrement = 0;
  let average;
- let analysis;
- let net =0;
+ let FinAnalysis;
+ let MonthZero =0;
  let netMatrice =[];
+ let Largest = ['',0];
+ let Smallest = ['', 99999999999999]
 
 
 
- for(let i = 0; i < finances.length; i++){for(let j = 0; j < finances[i].length; j++) {console.log(j)}};
+ for(let i = 0; i < finances.length; i++){for(let j = 0; j < finances[i].length; j++) 
+       //{console.log(j)}  
+       
+       //accummulation over the months are done below
+       
+        if(typeof finances[i][j] !== 'string'){accummulation = accummulation + finances[i][j]
+       console.log(accummulation)
+
+       increment = finances[i][j]-MonthZero;
+       MonthZero = finances[i][j];
+       netMatrice.push(increment);
+
+       if(increment>Largest[1]){Largest =[finances[i][0],finances[i][1]]
+
+        if(increment<Smallest[1]){Smallest =[finances[i][0],finances[i][1]]
+    }
+       console.log(`accummulation:${accummulation}`);
+       console.log(`increment:${increment}`);
+       console.log(`MonthZero:${MonthZero}`);
+       console.log(`netMatrice:${netMatrice}`);
+
+        }
+    };
+}
+
+    for(let i = 0; i < netMatrice.length; i++){
+        netIncrement = netIncrement + netMatrice[i];
+    }
+   
+    console.log(netIncrement);
+
+    average =Math.round((netIncrement)/86);
+
+    FinAnalysis ='Financial Analysis' + '\n' +
+    '---------------------' +  '\n'  +
+
+    'Total Months: ' +  TotalMonth + '\n' +
+    'Average Change:' + average + '\n' + 
+
+    'Greatest Increase in Profit:' + Largest + '\n' +
+    'Greatest Decrease in Profit:' + Smallest + '\n'  
 
 
+console.log(FinAnalysis)
 
