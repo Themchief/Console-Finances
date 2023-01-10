@@ -86,3 +86,22 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+
+console.log(finances);
+//initiaisation of code
+
+let TotalMonth = finances.length;
+ let Total = 0;
+ let increment = 0;
+ let average;
+ let analysis;
+ let net =0;
+ let netMatrice =[];
+
+
+
+ for(let i = 0; i < finances.length; i++){for(let j = 0; j < finances[i].length; j++) {console.log(j)}};
+
+
+
